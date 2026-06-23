@@ -1,0 +1,20 @@
+# Release signing credentials for the Android upload key.
+#
+# 1. Copy this file to `key.properties` (same folder). key.properties is
+#    gitignored and must NEVER be committed.
+# 2. Generate an upload keystore (run once, keep the .jks file safe and backed up
+#    — losing it means you can't ship updates unless you use Play App Signing):
+#
+#    keytool -genkey -v -keystore upload-keystore.jks -storetype JKS \
+#      -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+#
+# 3. Fill in the values below to match what you entered.
+#
+# storeFile is resolved relative to the android/ folder (rootProject), so an
+# absolute path is the safest choice on Windows, e.g.
+#   storeFile=C:/keys/upload-keystore.jks
+
+storePassword=your-keystore-password
+keyPassword=your-key-password
+keyAlias=upload
+storeFile=C:/path/to/upload-keystore.jks

@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Required to receive DDP pixel data over UDP on the local network. -->
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="ddp_viewer"
+        android:label="DDP Viewer"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,4 +1,4 @@
-package com.example.ddp_viewer
+package com.sandbdesigns.ddpviewer
 
 import io.flutter.embedding.android.FlutterActivity
 
