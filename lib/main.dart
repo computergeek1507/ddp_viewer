@@ -162,24 +162,26 @@ class _ViewerScreenState extends State<ViewerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          _buildControlBar(),
-          Expanded(
-            child: ValueListenableBuilder(
-              valueListenable: _testPattern ? _testFrame : _receiver.frame,
-              builder: (context, frame, _) {
-                return PixelCanvas(
-                  layout: _layout,
-                  frame: frame,
-                  channelOffset: _testPattern ? 0 : _channelOffset,
-                  colorOrder: _testPattern ? ColorOrder.rgb : _colorOrder,
-                );
-              },
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildControlBar(),
+            Expanded(
+              child: ValueListenableBuilder(
+                valueListenable: _testPattern ? _testFrame : _receiver.frame,
+                builder: (context, frame, _) {
+                  return PixelCanvas(
+                    layout: _layout,
+                    frame: frame,
+                    channelOffset: _testPattern ? 0 : _channelOffset,
+                    colorOrder: _testPattern ? ColorOrder.rgb : _colorOrder,
+                  );
+                },
+              ),
             ),
-          ),
-          _buildStatusBar(),
-        ],
+            _buildStatusBar(),
+          ],
+        ),
       ),
     );
   }

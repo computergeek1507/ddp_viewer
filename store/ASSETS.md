@@ -2,6 +2,30 @@
 
 Specs and a capture plan for the images Google Play requires.
 
+## Generated assets (ready to upload)
+
+| Asset | File | Size |
+| --- | --- | --- |
+| App icon | `graphics/icon-512.png` | 512 × 512 |
+| Feature graphic | `graphics/feature-graphic.png` | 1024 × 500 |
+| Phone screenshot 1 | `graphics/screenshots/01-live-matrix.png` | 1080 × 2400 |
+| Phone screenshot 2 | `graphics/screenshots/02-color-order.png` | 1080 × 2400 |
+| Phone screenshot 3 | `graphics/screenshots/03-matrix-48x32.png` | 1080 × 2400 |
+
+The app icon is downscaled from `assets/icon/icon.png` (1024²) with:
+`python -c "from PIL import Image; Image.open('assets/icon/icon.png').convert('RGBA').resize((512,512), Image.LANCZOS).save('store/graphics/icon-512.png')"`
+
+Regenerate any time (Windows, needs Python + Pillow):
+
+```bash
+python graphics/make_feature_graphic.py   # -> graphics/feature-graphic.png
+python graphics/make_screenshots.py       # frames graphics/raw/*.png -> graphics/screenshots/
+```
+
+Raw, unframed device captures are kept in `graphics/raw/` (captured from the
+release build on an Android emulator with the bundled `tool/test_sender.dart`
+feeding a live DDP rainbow).
+
 ## Required by Play
 
 | Asset | Spec | Notes |
